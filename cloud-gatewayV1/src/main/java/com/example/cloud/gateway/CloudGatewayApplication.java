@@ -44,6 +44,12 @@ public class CloudGatewayApplication {
 
                                 .addRequestHeader("x-rapidapi-key", API_KEY)
                                 .addRequestHeader("x-rapidapi-host", API_HOST)
+
+
+                                .circuitBreaker(config -> config
+                                        .setName("muslimsalat")
+
+                                        .setFallbackUri("forward:/defaultMuslim"))
                         )
 
                         .uri("https://" + API_HOST)
