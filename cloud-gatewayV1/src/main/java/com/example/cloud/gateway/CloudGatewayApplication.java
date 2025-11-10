@@ -27,7 +27,9 @@ public class CloudGatewayApplication {
                 .route("r2", r -> r.path("/products/**")
 
                         .uri("lb://INVENTORY-SERVICE"))
-
+                .route("r3", r -> r.path("/fullBill/**")
+                .uri("lb://BILLING-SERVICE"))
                 .build();
+
     }
 }
